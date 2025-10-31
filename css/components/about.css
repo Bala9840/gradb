@@ -38,7 +38,7 @@
 }
 .about-description-section p {
   text-align: justify;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .description {
@@ -100,6 +100,7 @@
   }
   .about-description-section p {
     text-align: start;
+    font-size: 12px;
   }
 
   .description-wrapper {
