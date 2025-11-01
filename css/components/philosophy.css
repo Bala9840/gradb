@@ -113,7 +113,7 @@
     font-size: 2rem;
     font-weight: 500;
     line-height: 1.1;
-    color: var(--primary-color);
+    color: gray;
     position: relative;
     right: 33px;
   }
@@ -123,7 +123,7 @@
     width: 125%;
   }
   .philosophy-right-left-top p {
-    font-size: 0.8rem;
+    font-size: 8px;
   }
 
   .philosophy-right {
@@ -157,12 +157,16 @@
     transition: transform 0.3s ease;
   }
 
+  #middle-row {
+    padding: 3px 0;
+  }
+
   .keys {
     width: 60%;
     position: absolute;
     z-index: 10;
     left: 37%;
-    top: 74%;
+    top: 72%;
     padding-right: 0px;
   }
 
@@ -173,9 +177,13 @@
   }
   .value-divider {
     width: 80%;
+    margin: 5px 0;
   }
   .value-row {
     font-size: 0.5rem;
+  }
+  #value-row {
+    margin-top: -10px;
   }
   .values-title {
     font-size: 1rem;

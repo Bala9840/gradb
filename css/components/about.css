@@ -78,7 +78,7 @@
   .image-wrapper {
     float: left;
     margin-right: 20px;
-    width: 65%;
+    width: 70%;
   }
 
   .image-wrapper img {
@@ -87,7 +87,7 @@
     width: 100% !important;
     height: 350px !important;
     object-fit: cover !important;
-    border-radius: 16px !important;
+    border-radius: 5px !important;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
   }
   .about-section-title {
@@ -100,14 +100,19 @@
   }
   .about-description-section p {
     text-align: start;
-    font-size: 12px;
+    font-size: 9px !important;
   }
-
+  #second-desc {
+    margin-top: 35px;
+  }
   .description-wrapper {
     gap: 2px;
   }
   .description {
     margin-top: 0px;
+  }
+  .btn-class {
+    padding-top: 8px;
   }
 
   .btn-view-projects {

@@ -744,7 +744,7 @@ body {
 .footer-input::placeholder {
   color: rgba(0, 0, 0, 0.7) !important;
   opacity: 1;
-  font-size: 14px;
+  font-size: 0.75rem !important;
 }
 
 /* Textarea specific styles */
@@ -934,7 +934,7 @@ body {
   .footer-input::placeholder {
     color: rgba(0, 0, 0, 0.7) !important;
     opacity: 1;
-    font-size: 0.323rem;
+    font-size: 0.75rem !important;
   }
   .content-wrapper {
     margin-left: 0;
@@ -958,6 +958,7 @@ body {
   .project-image1 {
     height: 280px;
     width: 150px;
+    margin-bottom: 0.6rem;
   }
 
   .main-content {
@@ -1011,6 +1012,15 @@ body {
     height: 45px;
   }
 
+  #second-item {
+    position: relative !important;
+    bottom: 7px !important;
+  }
+  #third-item {
+    position: relative !important;
+    bottom: 17px !important;
+  }
+
   .navbar-logo {
     height: 35px !important;
     max-height: 35px !important;
@@ -1042,6 +1052,9 @@ body {
   .sidebar-category:not(.active) .sidebar-category-content {
     opacity: 0 !important;
     pointer-events: none !important;
+  }
+  .project-info {
+    padding: 0;
   }
 
   .sidebar-content-overlay {
@@ -1095,6 +1108,7 @@ body {
   .project-image {
     height: 280px;
     width: 150px;
+    margin-bottom: 0.6rem;
   }
 
   .grid-split .project-image {
@@ -1186,7 +1200,6 @@ body {
 
   .footer-left {
     padding-right: 140px;
-    font-size: 0.75rem;
   }
   .footer-right {
     grid-template-columns: 1fr 1fr 1fr !important;

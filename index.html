@@ -49,7 +49,7 @@
         </a>
         <button
           class="navbar-toggler"
-          type="button"
+          type="button border-0"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
@@ -135,26 +135,34 @@
         }
         // NOTE: scroll-to-section / hash handling is performed exclusively in js/script.js
 
-
-        // Close navbar when a link is clicked 
+        // Close navbar when a link is clicked
         document
-        .querySelector(".navbar-toggler")
-        .addEventListener("click", () => {
-          const navbar = document.querySelector(".navbar-collapse");
-          document.querySelectorAll(".navbar-nav .nav-link").forEach((link) => {
-            link.addEventListener("click", () => {
-              if (navbar.classList.contains("show")) {
-                navbar.classList.remove("show");
-              }
-            });
+          .querySelector(".navbar-toggler")
+          .addEventListener("click", () => {
+            const navbar = document.querySelector(".navbar-collapse");
+            document
+              .querySelectorAll(".navbar-nav .nav-link")
+              .forEach((link) => {
+                link.addEventListener("click", () => {
+                  if (navbar.classList.contains("show")) {
+                    navbar.classList.remove("show");
+                  }
+                });
+              });
+            if (navbar.classList.contains("show")) {
+              navbar.classList.remove("show");
+            }
           });
-          if (navbar.classList.contains("show")) {
-            navbar.classList.remove("show");
+        document.addEventListener("click", function (event) {
+          const navbarCollapse = document.querySelector(".navbar-collapse");
+          if (
+            !event.target.closest(".navbar") &&
+            navbarCollapse.classList.contains("show")
+          ) {
+            navbarCollapse.classList.remove("show");
           }
         });
       });
-
-      
     </script>
 
     <!-- Load ALL JavaScript files upfront -->

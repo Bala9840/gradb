@@ -323,7 +323,7 @@
 /* Small Mobile Devices (below 576px) */
 @media (max-width: 576px) {
   .grad-contact-section {
-    margin-top: 40px;
+    margin-top: 0px !important;
     padding: 60px 0;
   }
 

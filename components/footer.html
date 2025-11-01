@@ -345,14 +345,41 @@
           line-height: 1.5;
           margin-top: 3px;
         }
+        .mobile-view {
+          top: 70px;
+          position: relative;
+        }
+        .mobile-view ul {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          font-size: 8px;
+        }
+        .mobile-view ul li a {
+          text-decoration: none;
+          color: #000;
+        }
 
         .footer-left {
-          padding-right: 80px !important;
-          left: -11% !important;
-          top: 20px;
+          left: -28% !important;
+          position: relative !important;
+          top: 40px;
+          margin-bottom: 20px !important;
+          padding-right: 0px !important;
         }
-        .footer-left form input::placeholder {
-          font-size: 0.8rem;
+
+        .footer-input::placeholder {
+          color: rgba(0, 0, 0, 0.7) !important;
+          opacity: 1;
+          font-size: 0.5rem !important;
+        }
+        .footer-left h3 {
+          font-size: 12px !important;
+          font-weight: 300;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          margin-bottom: 10px;
+          color: #000;
         }
         .footer-right {
           grid-template-columns: 1fr;
@@ -369,7 +396,7 @@
 
       @media (max-width: 576px) {
         .footer-main {
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr 1fr !important;
           gap: 30px;
         }
         .footer-contact-right {
@@ -407,17 +434,20 @@
         }
 
         .footer-submit-btn {
-          width: 100%;
-          max-width: 250px;
-          padding: 0.7rem 1.5rem;
+          width: 100% !important;
+          max-width: 170px !important;
+          font-size: 0.321rem !important;
+          padding: 0.7rem 2rem !important;
         }
 
         .footer-logo img {
           height: 22px;
+          display: none;
         }
 
         .footer-input {
           width: 100%;
+          font-size: 12px !important;
         }
         .address-container {
           grid-template-columns: 1fr;
@@ -444,6 +474,7 @@
           line-height: 1.5;
           margin-top: 3px;
         }
+
         .footer-logo img {
           height: 20px;
         }
@@ -662,6 +693,23 @@
                 </div>
               </div>
             </div>
+
+            <!-- mobile only -->
+            <div id="mobile-only" class="mobile-view">
+              <ul>
+                <li><a href="services.html">Services</a></li>
+                <li>
+                  <a href="projects.html" class="border-bottom border-bottom-1 border-black">Projects</a>
+                  <ul class="mt-2">
+                    <li><a href="./project/" class="text-secondary">Residential</a></li>
+                    <li><a href="commercial.html" class="text-secondary">Commercial</a></li>
+                    <li><a href="industrial.html" class="text-secondary">Industrial</a></li>
+                    <li><a href="interiors.html" class="text-secondary">Interiors</a></li>
+                  </ul>
+                </li>
+                <li><a href="contact.html">contact Us</a></li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="copyright">
@@ -677,5 +725,16 @@
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
     ></script>
+    <script>
+      function checkViewPort() {
+        const viewportWidth = window.innerWidth;
+        if (viewportWidth < 768) {
+          document.getElementById("mobile-only").style.display = "block";
+        } else {
+          document.getElementById("mobile-only").style.display = "none";
+        }
+      }
+      window.addEventListener("load", checkViewPort);
+    </script>
   </body>
 </html>

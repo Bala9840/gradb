@@ -201,8 +201,8 @@
   }
 
   .grad-careers-submit-btn {
-    width: auto;
-    max-width: 250px;
+    width: 100%;
+    max-width: 100% !important;
     padding: 0.7rem 2rem;
     margin: 1.5rem 0 0 0;
     border-radius: 0;
@@ -219,7 +219,7 @@
 /* Small Mobile Devices (below 576px) */
 @media (max-width: 576px) {
   .grad-careers-section {
-    margin-top: 40px !important;
+    margin-top: 0px !important;
     padding: 60px 0;
   }
 
@@ -243,9 +243,13 @@
     font-size: 0.85rem;
   }
 
+  .grad-careers-file-text {
+    font-size: 12px !important;
+  }
+
   .grad-careers-submit-btn {
-    width: auto;
-    max-width: 220px;
+    width: 100%;
+    max-width: 100% !important;
     padding: 0.6rem 1.5rem;
     font-size: 0.85rem;
     margin: 1rem 0 0 0;
@@ -280,7 +284,7 @@
   }
 
   .grad-careers-submit-btn {
-    max-width: 200px;
+    max-width: 450px;
     padding: 0.5rem 1.2rem;
     font-size: 0.8rem;
   }
