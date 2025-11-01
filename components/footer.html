@@ -282,6 +282,10 @@
         color: #000;
       }
 
+      .mobile-view {
+        display: none;
+      }
+
       /* Responsive Design */
       @media (max-width: 992px) {
         .footer-links a {
@@ -346,6 +350,7 @@
           margin-top: 3px;
         }
         .mobile-view {
+          display: block;
           top: 70px;
           position: relative;
         }
@@ -701,10 +706,10 @@
                 <li>
                   <a href="projects.html" class="border-bottom border-bottom-1 border-black">Projects</a>
                   <ul class="mt-2">
-                    <li><a href="./project/" class="text-secondary">Residential</a></li>
-                    <li><a href="commercial.html" class="text-secondary">Commercial</a></li>
-                    <li><a href="industrial.html" class="text-secondary">Industrial</a></li>
-                    <li><a href="interiors.html" class="text-secondary">Interiors</a></li>
+                    <li><a href="./project/residential.html" class="text-secondary">Residential</a></li>
+                    <li><a href="./project/commercial.html" class="text-secondary">Commercial</a></li>
+                    <li><a href="./project/industrial.html" class="text-secondary">Industrial</a></li>
+                    <li><a href="./project/interiors.html" class="text-secondary">Interiors</a></li>
                   </ul>
                 </li>
                 <li><a href="contact.html">contact Us</a></li>
@@ -726,15 +731,15 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      function checkViewPort() {
-        const viewportWidth = window.innerWidth;
-        if (viewportWidth < 768) {
-          document.getElementById("mobile-only").style.display = "block";
-        } else {
-          document.getElementById("mobile-only").style.display = "none";
-        }
-      }
-      window.addEventListener("load", checkViewPort);
+      // function checkViewPort() {
+      //   const viewportWidth = window.innerWidth;
+      //   if (viewportWidth < 768) {
+      //     document.getElementById("mobile-only").classList.add('mobile-view')
+      //   }
+      // }
+      // checkViewPort()
+      // window.addEventListener("load", checkViewPort);
+      // window.addEventListener('resize', checkViewPort);
     </script>
   </body>
 </html>
