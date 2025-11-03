@@ -1,27 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<DOCTYPE html>
+  <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grad Architects</title>
 
     <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
 
     <!-- ALL CSS FILES LOADED UPFRONT - NO MORE DYNAMIC LOADING -->
     <link rel="stylesheet" href="css/style.css" />
@@ -37,50 +31,68 @@
   </head>
 
   <body>
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-      <div class="container">
+      <div class="container-sm">
+        <!-- Logo -->
         <a class="navbar-brand fw-bold" href="#home">
-          <img
-            src="/images/logo.png"
-            alt="Grad Architects"
-            class="navbar-logo"
-          />
+          <img src="/images/logo.png" alt="Grad Architects" class="navbar-logo" />
         </a>
-        <button
-          class="navbar-toggler"
-          type="button border-0"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+
+        <!-- Toggler -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <!-- NAVIGATION -->
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
+          <!-- DESKTOP MENU -->
+          <ul class="navbar-nav ms-auto d-none d-lg-flex">
             <li class="nav-item"><a class="nav-link" href="#home">HOME</a></li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">ABOUT US</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#philosophy">PHILOSOPHY</a>
-            </li>
-            <li tabindex="-1" class="nav-item">
-              <a class="nav-link" href="#services">SERVICES</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#projects">PROJECTS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#careers">CAREERS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">CONTACT US</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="#about">ABOUT US</a></li>
+            <li class="nav-item"><a class="nav-link" href="#philosophy">PHILOSOPHY</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">SERVICES</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">PROJECTS</a></li>
+            <li class="nav-item"><a class="nav-link" href="#careers">CAREERS</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">CONTACT US</a></li>
           </ul>
-        </div>
+
+          <!-- MOBILE MENU -->
+          <nav class="mobile-menu w-100 d-lg-none">
+            <ul class="mobile-menu-list">
+              <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html#about">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html#philosophy">Philosophy</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
+
+              <!-- Dropdown Projects (Mobile only) -->
+              <li class="has-submenu">
+                <div class="flex-row align-content-center d-flex">
+                  <a href="index.html#projects" class="nav-link">Projects</a>
+                  <button type="button" class="submenu-toggle justify-content-end">
+                    <span class="arrow">&#8250;</span>
+                  </button>
+                </div>
+                <ul class="submenu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/components/project/residential.html">Residential</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/components/project/commercial.html">Commercial</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/components/project//industrial.html">Industrial</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/components/project/interiors.html">Interiors</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item"><a class="nav-link" href="#careers">Careers</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>  
       </div>
     </nav>
 
@@ -125,45 +137,109 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Initialize carousel if present; do NOT touch sessionStorage.hash here.
+        // Initialize carousel
         const myCarousel = document.getElementById("homeCarousel");
         if (myCarousel) {
-          new bootstrap.Carousel(myCarousel, {
-            interval: 3000,
-            wrap: true,
-          });
+          new bootstrap.Carousel(myCarousel, { interval: 3000, wrap: true });
         }
-        // NOTE: scroll-to-section / hash handling is performed exclusively in js/script.js
 
-        // Close navbar when a link is clicked
-        document
-          .querySelector(".navbar-toggler")
-          .addEventListener("click", () => {
-            const navbar = document.querySelector(".navbar-collapse");
-            document
-              .querySelectorAll(".navbar-nav .nav-link")
-              .forEach((link) => {
-                link.addEventListener("click", () => {
-                  if (navbar.classList.contains("show")) {
-                    navbar.classList.remove("show");
-                  }
-                });
-              });
-            if (navbar.classList.contains("show")) {
-              navbar.classList.remove("show");
+        const navbarCollapse = document.querySelector(".navbar-collapse");
+
+        // Close mobile menu when any link is clicked
+        document.querySelectorAll(".mobile-menu-list a").forEach((link) => {
+          link.addEventListener("click", () => {
+            if (navbarCollapse.classList.contains("show")) {
+              const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+              bsCollapse.hide();
             }
           });
+        });
+
+        // Close navbar if clicking outside it
         document.addEventListener("click", function (event) {
-          const navbarCollapse = document.querySelector(".navbar-collapse");
           if (
             !event.target.closest(".navbar") &&
             navbarCollapse.classList.contains("show")
           ) {
-            navbarCollapse.classList.remove("show");
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            bsCollapse.hide();
           }
+        });
+
+        // Handle Projects dropdown toggle - ONLY for the arrow button
+        const submenuToggles = document.querySelectorAll(".submenu-toggle");
+
+        submenuToggles.forEach((toggle) => {
+          toggle.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const submenu = this.closest('.has-submenu').querySelector('.submenu');
+            const arrow = this.querySelector('.arrow');
+            const isOpen = submenu.style.display === "block";
+
+            // Close all other submenus first
+            document.querySelectorAll(".submenu").forEach(menu => {
+              if (menu !== submenu) {
+                menu.style.display = "none";
+              }
+            });
+            document.querySelectorAll(".submenu-toggle").forEach(btn => {
+              if (btn !== this) {
+                btn.classList.remove("active");
+                btn.querySelector('.arrow').classList.remove("rotated");
+              }
+            });
+
+            // Toggle current submenu
+            if (!isOpen) {
+              submenu.style.display = "block";
+              this.classList.add("active");
+              arrow.classList.add("rotated");
+            } else {
+              submenu.style.display = "none";
+              this.classList.remove("active");
+              arrow.classList.remove("rotated");
+            }
+          });
+        });
+
+        // Close submenus when clicking elsewhere
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".has-submenu")) {
+            document.querySelectorAll(".submenu").forEach(menu => {
+              menu.style.display = "none";
+            });
+            document.querySelectorAll(".submenu-toggle").forEach(btn => {
+              btn.classList.remove("active");
+              btn.querySelector('.arrow').classList.remove("rotated");
+            });
+          }
+        });
+
+        // Close submenu when clicking on submenu links
+        document.querySelectorAll(".submenu .nav-link").forEach(link => {
+          link.addEventListener("click", () => {
+            document.querySelectorAll(".submenu").forEach(menu => {
+              menu.style.display = "none";
+            });
+            document.querySelectorAll(".submenu-toggle").forEach(btn => {
+              btn.classList.remove("active");
+              btn.querySelector('.arrow').classList.remove("rotated");
+            });
+
+            // Also close the mobile menu
+            if (navbarCollapse.classList.contains("show")) {
+              const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+              bsCollapse.hide();
+            }
+          });
         });
       });
     </script>
+
+
+
 
     <!-- Load ALL JavaScript files upfront -->
     <script src="js/home.js"></script>
@@ -173,4 +249,5 @@
     <script src="js/careers.js"></script>
     <script src="js/script.js"></script>
   </body>
-</html>
+
+  </html>

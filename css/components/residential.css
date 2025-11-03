@@ -259,7 +259,7 @@ body {
 /* ACTIVE CATEGORY STYLING */
 .sidebar-category.active {
   flex: 1 1 100% !important;
-  min-height: 200px !important;
+  max-height: 300px !important;
   background: #ffffff !important;
 }
 
@@ -856,7 +856,13 @@ body {
 .footer-social-icon:hover {
   color: #000;
 }
-
+.mobile-view{
+  display: none;
+}
+.mobile-social-icons {
+    display: none;
+    /* hidden by default */
+  }
 /* ================================
    Responsive Design
    ================================ */
@@ -936,7 +942,6 @@ body {
     margin-top: 60px;
     width: 100%;
   }
-
 
   .sidebar {
     position: relative;
@@ -1164,7 +1169,35 @@ body {
     width: 100%;
     font-size: 16px !important;
   }
+  /* ============================
+   Mobile Social Icons Styling
+   ============================ */
 
+    .mobile-social-icons {
+      position: relative;
+      display: flex;
+      margin-left: 10px;
+      /* justify-content: center;
+                align-items: center; */
+      gap: 20px;
+    }
+    .mobile-social-icons img {
+      max-width: 35px;
+      width: 22px;
+      height: 22px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .mobile-social-icons a {
+      color: #000;
+      font-size: 18px;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+
+    .mobile-social-icons a:hover {
+      color: #555;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1338,3 +1371,5 @@ body {
   height: 1rem;
   border-width: 0.2em;
 }
+ 
+

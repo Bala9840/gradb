@@ -44,7 +44,7 @@ html, body {
         min-height: 50px;
         display: flex;
         align-items: center;
-        justify-content: center; /* Center align text */
+        justify-content: center ; /* Center align text */
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         font-size: 16px;
         transition: all 0.3s ease;
@@ -507,3 +507,227 @@ img {
     height: 100%;
     object-fit: cover;
 }
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+        padding-right: 100px;
+    }
+}
+/* ==============================
+   MOBILE MENU 
+=============================== */
+
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+.mobile-menu {
+  background: #fff;
+  padding: 20px;
+  width: 100%;
+}
+
+.mobile-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu-list li {
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-menu-list a,
+.submenu-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 14px 0;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: none;
+  border: none;
+  outline: none;
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.submenu-toggle.active .arrow {
+  transform: rotate(90deg);
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 20px;
+  margin: 0;
+  display: none;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px 0;
+  font-size: 15px;
+  color: #777;
+  text-transform: none;
+}
+
+/* Hide mobile version on desktop */
+@media (min-width: 992px) {
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+/* Hide desktop menu on mobile */
+@media (max-width: 991px) {
+  .navbar-nav {
+    display: none !important;
+  }
+}
+
+/* Remove underline / border line under each menu item */
+@media (max-width: 991px) {
+  .mobile-menu-list li {
+    border: none !important; /* removes line separator */
+  }
+
+  .mobile-menu-list a {
+    text-decoration: none !important; /* removes underline */
+  }
+
+  /* Optional: Add subtle hover effect instead */
+  .mobile-menu-list a:hover {
+    color: #000;
+    letter-spacing: 2.2px;
+  }
+}
+
+/* ============================
+   Mobile Menu Font Styling
+============================ */
+@media (max-width: 991px) {
+  .mobile-menu-list a,
+  .submenu-toggle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #222;
+    background: none;
+    border: none;
+    outline: none;
+  }
+
+  .mobile-menu-list a:hover,
+  .submenu-toggle:hover {
+    color: #000;
+  }
+
+  /* Submenu (Projects items) */
+  .submenu a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  .submenu a:hover {
+    color: #000;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Submenu header styling */
+  .submenu-header {
+    width: 100%;
+    padding: 0;
+  }
+
+  .projects-main-link {
+    text-decoration: none;
+    color: inherit;
+    padding: 14px 15px;
+    display: block;
+    flex: 1;
+  }
+
+  /* Submenu toggle button */
+  .submenu-toggle {
+    padding: 14px 15px !important;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .submenu-toggle:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  /* Arrow styling */
+  .arrow {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+
+  .submenu-toggle.active .arrow {
+    transform: rotate(90deg);
+  }
+
+  /* Submenu list */
+  .submenu {
+    list-style: none;
+    margin: 0;
+    display: none;
+    /* background-color: rgba(0, 0, 0, 0.02); */
+  }
+
+  .submenu li {
+    border-bottom: none;
+  }
+
+  .submenu .nav-link {
+    padding: 12px 0px !important;
+    font-size: 14px;
+    color: #666;
+    /* text-transform: uppercase; */
+    letter-spacing: 1px;
+    border-bottom: none !important;
+  }
+
+  .submenu .nav-link:hover {
+    color: #000;
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  /* Remove border from has-submenu */
+  .has-submenu {
+    border-bottom: none !important;
+  }
+}
+
+
+
+
+
+
+
