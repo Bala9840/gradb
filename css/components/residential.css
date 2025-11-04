@@ -864,6 +864,65 @@ body {
   display: none;
   /* hidden by default */
 }
+
+
+.secondary-social-icon {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 10px;
+      }
+      .secondary-social-icon1,
+      .secondary-social-icon2,
+      .secondary-social-icon3 {
+        width: 31px;
+        height: 31px;
+        border: 1px solid gray;
+        border-radius: 100%;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        padding: 5px;
+      }
+      #icon1 img,
+      #icon2 img,
+      #icon3 img {
+        position: relative;
+        max-width: 28px;
+        right: 3px;
+        width: 26px;
+        height: 26px;
+      }
+
+      #icon2 img {
+        padding: 2px;
+      }
+
+      #icon3 img {
+        padding: 2px;
+      }
+
+      .secondary-social-icon1:hover {
+        color: #000000;
+        background-color: #000000;
+        border: #000000;
+        text-decoration: none;
+      }
+
+      .secondary-social-icon2:hover {
+        color: #000000;
+        background-color: #000000;
+        border: #000000;
+        text-decoration: none;
+      }
+
+      .secondary-social-icon3:hover {
+        color: #000000;
+        background-color: #000000;
+        border: #000000;
+        text-decoration: none;
+      }
 /* ================================
    Responsive Design
    ================================ */
