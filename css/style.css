@@ -79,17 +79,16 @@ html, body {
     .nav-item {
         width: 100%;
         display: flex;
-        justify-content: center;
     }
     
     /* Mobile menu backdrop */
     .navbar-collapse {
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
+        /* background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px); */
         margin-top: 10px;
         border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        max-height: 70vh;
+        /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        max-height: 70vh; */
         overflow-y: auto;
     }
     
@@ -340,7 +339,7 @@ body {
 
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2844, 62, 80, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    width: 1.1em;
+    width: 1.1em ;
     height: 1.1em;
 }
 
@@ -518,212 +517,82 @@ img {
 /* ==============================
    MOBILE MENU 
 =============================== */
-
-@media (min-width: 769px) {
-  .mobile-menu {
-    display: none;
+@media (max-width: 768px) {
+  .mobile-menu-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px 30px 30px 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
   }
-}
-
-.mobile-menu {
-  background: #fff;
-  padding: 20px;
-  width: 100%;
-}
-
-.mobile-menu-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.mobile-menu-list li {
-  border-bottom: 1px solid #eee;
-}
-
-.mobile-menu-list a,
-.submenu-toggle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 14px 0;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background: none;
-  border: none;
-  outline: none;
-  color: #000;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.arrow {
-  transition: transform 0.3s ease;
-}
-
-.submenu-toggle.active .arrow {
-  transform: rotate(90deg);
-}
-
-.submenu {
-  list-style: none;
-  padding-left: 20px;
-  margin: 0;
-  display: none;
-}
-
-.submenu li a {
-  display: block;
-  padding: 10px 0;
-  font-size: 15px;
-  color: #777;
-  text-transform: none;
-}
-
-/* Hide mobile version on desktop */
-@media (min-width: 992px) {
-  .mobile-menu {
-    display: none !important;
-  }
-}
-
-/* Hide desktop menu on mobile */
-@media (max-width: 991px) {
-  .navbar-nav {
-    display: none !important;
-  }
-}
-
-/* Remove underline / border line under each menu item */
-@media (max-width: 991px) {
-  .mobile-menu-list li {
-    border: none !important; /* removes line separator */
-  }
-
   .mobile-menu-list a {
-    text-decoration: none !important; /* removes underline */
-  }
-
-  /* Optional: Add subtle hover effect instead */
-  .mobile-menu-list a:hover {
-    color: #000;
-    letter-spacing: 2.2px;
-  }
-}
-
-/* ============================
-   Mobile Menu Font Styling
-============================ */
-@media (max-width: 991px) {
-  .mobile-menu-list a,
-  .submenu-toggle {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #222;
+    color: #000;
     background: none;
     border: none;
     outline: none;
   }
-
-  .mobile-menu-list a:hover,
-  .submenu-toggle:hover {
-    color: #000;
-  }
-
-  /* Submenu (Projects items) */
-  .submenu a {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #555;
-  }
-
-  .submenu a:hover {
-    color: #000;
-  }
-}
-
-@media (max-width: 991px) {
-  /* Submenu header styling */
-  .submenu-header {
-    width: 100%;
-    padding: 0;
-  }
-
-  .projects-main-link {
+  .nav-link {
     text-decoration: none;
-    color: inherit;
-    padding: 14px 15px;
-    display: block;
-    flex: 1;
+    color: grey;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    transition: color 0.3s ease;
+    position: relative;
   }
-
-  /* Submenu toggle button */
-  .submenu-toggle {
-    padding: 14px 15px !important;
-    margin: 0 !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    min-width: 44px;
-    min-height: 44px;
-  }
-
-  .submenu-toggle:focus {
+  .has-submenu button {
+    border: none;
     outline: none;
-    box-shadow: none;
+    background-color: transparent;
   }
-
-  /* Arrow styling */
-  .arrow {
-    font-size: 16px;
-    transition: transform 0.3s ease;
-    display: inline-block;
-  }
-
-  .submenu-toggle.active .arrow {
-    transform: rotate(90deg);
-  }
-
-  /* Submenu list */
   .submenu {
     list-style: none;
-    margin: 0;
-    display: none;
-    /* background-color: rgba(0, 0, 0, 0.02); */
+    margin-top: 20px;
+    /* display: flex !important;
+    flex-direction: column;
+    gap: 30px; */
   }
 
-  .submenu li {
-    border-bottom: none;
+  .submenu a {
+    font-size: 12px !important;
+    letter-spacing: 3px;
+    text-transform: none !important;
+    font-weight: 600 !important;
+    color: gray !important;
+    
+    letter-spacing: 1px !important;
   }
 
-  .submenu .nav-link {
-    padding: 12px 0px !important;
-    font-size: 14px;
-    color: #666;
-    /* text-transform: uppercase; */
-    letter-spacing: 1px;
-    border-bottom: none !important;
-  }
-
-  .submenu .nav-link:hover {
-    color: #000;
-    background-color: rgba(0, 0, 0, 0.03);
-  }
-
-  /* Remove border from has-submenu */
-  .has-submenu {
-    border-bottom: none !important;
+  .has-submenu a {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
   }
 }
+
+/* Default arrow style */
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+}
+
+/* When submenu is open */
+.arrow.rotated {
+  transform: rotate(90deg); /* Rotate 90 degrees clockwise */
+}
+
 
 
 

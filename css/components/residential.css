@@ -63,6 +63,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .navbar-nav .nav-link::after {
@@ -89,7 +90,7 @@
 
 /* Mobile Navigation */
 .navbar-toggler {
-  border: none;
+  border: none ;
   padding: 0.2rem 0.3rem;
   font-size: 1rem;
   background: transparent;
@@ -102,8 +103,8 @@
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2844, 62, 80, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  width: 1.1em;
-  height: 1.1em;
+  width: 1.1rem!important;
+  height: 1.1rem!important;
 }
 
 .navbar-collapse {
@@ -856,13 +857,13 @@ body {
 .footer-social-icon:hover {
   color: #000;
 }
-.mobile-view{
+.mobile-view {
   display: none;
 }
 .mobile-social-icons {
-    display: none;
-    /* hidden by default */
-  }
+  display: none;
+  /* hidden by default */
+}
 /* ================================
    Responsive Design
    ================================ */
@@ -894,6 +895,21 @@ body {
   .content-wrapper {
     margin-left: 280px;
     width: calc(100% - 280px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid-five-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .banner-image {
+    height: 30vh;
+  }
+  .footer-main {
+    gap: 0px;
+  }
+  .footer-submit-btn {
+    padding: 0.7rem 0.5rem;
   }
 }
 
@@ -1173,31 +1189,31 @@ body {
    Mobile Social Icons Styling
    ============================ */
 
-    .mobile-social-icons {
-      position: relative;
-      display: flex;
-      margin-left: 10px;
-      /* justify-content: center;
+  .mobile-social-icons {
+    position: relative;
+    display: flex;
+    margin-left: 10px;
+    /* justify-content: center;
                 align-items: center; */
-      gap: 20px;
-    }
-    .mobile-social-icons img {
-      max-width: 35px;
-      width: 22px;
-      height: 22px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+    gap: 20px;
+  }
+  .mobile-social-icons img {
+    max-width: 35px;
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
-    .mobile-social-icons a {
-      color: #000;
-      font-size: 18px;
-      transition: color 0.3s;
-      text-decoration: none;
-    }
+  .mobile-social-icons a {
+    color: #000;
+    font-size: 18px;
+    transition: color 0.3s;
+    text-decoration: none;
+  }
 
-    .mobile-social-icons a:hover {
-      color: #555;
-    }
+  .mobile-social-icons a:hover {
+    color: #555;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1371,5 +1387,80 @@ body {
   height: 1rem;
   border-width: 0.2em;
 }
- 
+
+@media (max-width: 768px) {
+  .mobile-menu-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px 30px 30px 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+  }
+  .mobile-menu-list a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000;
+    background: none;
+    border: none;
+    outline: none;
+  }
+  .nav-link {
+    text-decoration: none;
+    color: grey;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  .has-submenu button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+  .submenu {
+    list-style: none;
+    margin-top: 20px;
+    /* display: flex !important;
+    flex-direction: column;
+    gap: 30px; */
+  }
+
+  .submenu a {
+    font-size: 12px !important;
+    letter-spacing: 3px;
+    text-transform: none !important;
+    font-weight: 500 !important;
+    color: gray !important;
+    
+    letter-spacing: 1px !important;
+  }
+
+  .has-submenu a {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}
+
+/* Default arrow style */
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+}
+
+/* When submenu is open */
+.arrow.rotated {
+  transform: rotate(90deg); /* Rotate 90 degrees clockwise */
+}
 

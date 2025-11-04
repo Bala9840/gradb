@@ -29,7 +29,7 @@
 }
 .about-section-title {
   position: absolute;
-  right: 24.6%;
+  right: 28.6%;
   top: 8%;
 }
 .about-section-title h3 {
@@ -57,6 +57,14 @@
   letter-spacing: 1px;
   text-decoration: none;
   display: inline-block;
+}
+
+@media (max-width: 1024px) {
+  .about-section-title {
+    position: absolute;
+    right: 24.6%;
+    top: 8%;
+  }
 }
 
 @media (max-width: 768px) {

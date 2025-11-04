@@ -82,6 +82,41 @@
    RESPONSIVE DESIGN
 ================================ */
 
+@media (max-width: 1024px) {
+  .keys {
+    padding-right: 10px;
+  }
+  .main-heading-stacked {
+    font-size: 2rem;
+  }
+
+  .philosophy-right-right {
+    position: relative;
+    top: 0;
+    width: 1050px;
+    height: 470px;
+    right: 31%;
+  }
+  .philosophy-right-left-top {
+    margin-top: 45px;
+    width: 55%;
+    /* margin-right: 10px; */
+    /* position: relative;
+    right: 20px; */
+  }
+  /* .philosophy-right-left-bottom {
+    position: relative;
+    right: 20px;
+  } */
+  .philosophy-right-left {
+    position: relative;
+    right: 20px;
+  }
+  .container .heading {
+    left: 15%;
+  }
+}
+
 /* 🔹 Mobile (≤768px) */
 @media (max-width: 768px) {
   #philosophy-container {
@@ -117,7 +152,10 @@
     position: relative;
     right: 33px;
   }
-
+.philosophy-right-left {
+    position: relative;
+    right: 0px;
+  }
   .philosophy-right-left-top {
     margin-top: 15px;
     width: 125%;

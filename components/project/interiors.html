@@ -13,24 +13,70 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="../../index.html">
-                <img src="../../images/logo.png" alt="Grad Architects" class="navbar-logo">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-sm">
+            <!-- Logo -->
+            <a class="navbar-brand fw-bold" href="#home">
+                <img src="/images/logo.png" alt="Grad Architects" class="navbar-logo" />
             </a>
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    
+            <!-- Toggler -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse border-0" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
+            <!-- NAVIGATION -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- DESKTOP MENU -->
+                <ul class="navbar-nav ms-auto d-none d-lg-flex">
                     <li class="nav-item"><a class="nav-link" href="index.html#home">HOME</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#about">ABOUT US</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#philosophy">PHILOSOPHY</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#services">SERVICES</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="index.html#projects">PROJECTS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#projects">PROJECTS</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#careers">CAREERS</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#contact">CONTACT US</a></li>
                 </ul>
+    
+                <!-- MOBILE MENU -->
+                <nav class="mobile-menu w-100 d-lg-none">
+                    <ul class="mobile-menu-list">
+                        <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#philosophy">Philosophy</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
+    
+                        <!-- Dropdown Projects (Mobile only) -->
+                        <li class="has-submenu">
+                            <div class="flex-row align-items-center d-flex justify-content-between">
+                                <a href="#projects" class="nav-link">Projects</a>
+                                <button type="button" class="submenu-toggle justify-content-end">
+                                    <span class="arrow">&#8250;</span>
+                                </button>
+                            </div>
+                            <ul class="submenu">
+                                <li class="nav-item pb-4">
+                                    <a class="nav-link" href="/components/project/residential.html">Residential</a>
+                                </li>
+                                <li class="nav-item pb-4">
+                                    <a class="nav-link" href="/components/project/commercial.html">Commercial</a>
+                                </li>
+                                <li class="nav-item pb-4">
+                                    <a class="nav-link" href="/components/project/industrial.html">Industrial</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/components/project/interiors.html">Interiors</a>
+                                </li>
+                            </ul>
+                        </li>
+    
+                        <li class="nav-item"><a class="nav-link" href="index.html#careers">Careers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact Us</a></li>
+                    </ul>
+                </nav>
+
+
+                
             </div>
         </div>
     </nav>
@@ -425,7 +471,7 @@
                     <li><a href="/components/project/interiors.html" class="text-secondary">Interiors</a></li>
                   </ul>
                 </li>
-                <li><a href="contact.html">contact Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
               </ul>
             </div>
                 </div>
@@ -606,6 +652,86 @@
                 });
             });
         });
+                const submenuToggles = document.querySelectorAll(".submenu-toggle");
+
+        submenuToggles.forEach((toggle) => {
+          toggle.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const submenu = this.closest('.has-submenu').querySelector('.submenu');
+            const arrow = this.querySelector('.arrow');
+            const isOpen = submenu.style.display === "block";
+
+            // Close all other submenus first
+            document.querySelectorAll(".submenu").forEach(menu => {
+              if (menu !== submenu) {
+                menu.style.display = "none";
+              }
+            });
+            document.querySelectorAll(".submenu-toggle").forEach(btn => {
+              if (btn !== this) {
+                btn.classList.remove("active");
+                btn.querySelector('.arrow').classList.remove("rotated");
+              }
+            });
+
+            // Toggle current submenu
+            if (!isOpen) {
+              submenu.style.display = "block";
+              this.classList.add("active");
+              arrow.classList.add("rotated");
+            } else {
+              submenu.style.display = "none";
+              this.classList.remove("active");
+              arrow.classList.remove("rotated");
+            }
+          });
+        });
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".has-submenu")) {
+            document.querySelectorAll(".submenu").forEach(menu => {
+              menu.style.display = "none";
+            });
+            document.querySelectorAll(".submenu-toggle").forEach(btn => {
+              btn.classList.remove("active");
+              btn.querySelector('.arrow').classList.remove("rotated");
+            });
+          }
+        });
+          document.querySelectorAll(".submenu .nav-link").forEach(link => {
+          link.addEventListener("click", () => {
+            document.querySelectorAll(".submenu").forEach(menu => {
+              menu.style.display = "none";
+            });
+            document.querySelectorAll(".submenu-toggle").forEach(btn => {
+              btn.classList.remove("active");
+              btn.querySelector('.arrow').classList.remove("rotated");
+            });
+
+            // Also close the mobile menu
+            if (navbarCollapse.classList.contains("show")) {
+              const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+              bsCollapse.hide();
+            }
+          });
+        });
+
+        // ===== CLOSE MOBILE MENU WHEN CLICKED OUTSIDE =====
+            document.addEventListener("click", function (e) {
+            const navbarCollapse = document.getElementById("navbarNav");
+            const toggler = document.querySelector(".navbar-toggler");
+
+  // Check if mobile menu is open
+            if (navbarCollapse.classList.contains("show")) {
+    // If click is outside both the menu and the toggler button
+            if (!navbarCollapse.contains(e.target) && !toggler.contains(e.target)) {
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            bsCollapse.hide();
+    }
+  }
+});
+
     </script>
 
 </body>
