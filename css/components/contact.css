@@ -504,7 +504,7 @@
 #icon2 img,
 #icon3 img{
   position: relative ;
-  right: 3px;
+  right: 3px !important;
 max-width: 28px;
 width: 26px;
 height: 26px;
