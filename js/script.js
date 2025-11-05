@@ -154,6 +154,7 @@ function finalizeInitialization() {
         enhanceResponsiveDesign();
         initializeAllForms();
         removeEmptySpace();
+        initializeMobileFooterNavigation();
         
         console.log('🎉 Application fully initialized');
     }, 150);
@@ -726,28 +727,74 @@ function initScrollSpy() {
     updateActiveNavLink();
 }
 
+function initializeMobileFooterNavigation() {
+    const mobileNavLinks = document.querySelectorAll('.mobile-view a');
+    
+    mobileNavLinks.forEach(link => {
+        const newLink = link.cloneNode(true);
+        link.parentNode.replaceChild(newLink, link);
+
+        newLink.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+
+            if (href.startsWith('/components/project/') || 
+                href.startsWith('http') || 
+                href.startsWith('mailto:') || 
+                href.startsWith('tel:')) {
+                return;
+            }
+            
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                console.log('📱 Mobile footer navigation to:', targetId);
+
+                const navbarLink = document.querySelector(`.navbar-nav .nav-link[href="#${targetId}"]`);
+                if (navbarLink) {
+                    handleNavigationClick(targetId, navbarLink);
+                } else {
+                    hideAllHiddenSections();
+                    showStaticSections();
+                    
+                    if (['services', 'projects'].includes(targetId)) {
+                        showSection('services');
+                        showSection('projects');
+                        showSection('footer1');
+                    } else if (targetId === 'careers') {
+                        showSection('careers');
+                    } else if (targetId === 'contact') {
+                        showSection('contact');
+                    }
+                    
+                    setTimeout(() => {
+                        scrollToSection(targetId);
+                    }, 100);
+                }
+            }
+        });
+    });
+}
+
 function initMobileNavigation() {
     const navbarToggler = document.querySelector('.navbar-toggler');
     const navbarCollapse = document.querySelector('.navbar-collapse');
 
-    if (navbarToggler && navbarCollapse) {
-        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    document.querySelectorAll('.mobile-menu .nav-link[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            
+            const desktopNavLink = document.querySelector(`.navbar-nav .nav-link[href="#${targetId}"]`);
+            if (desktopNavLink) {
+                handleNavigationClick(targetId, desktopNavLink);
+            }
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-
-                handleNavigationClick(targetId, link);
-
-                if (window.innerWidth < 768) {
-                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) ||
-                        new bootstrap.Collapse(navbarCollapse, { toggle: false });
-                    bsCollapse.hide();
-                }
-            });
+            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                bsCollapse.hide();
+            }
         });
-    }
+    });
 }
 
 function initializeFooterNavigation() {
