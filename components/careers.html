@@ -21,7 +21,7 @@
                                 placeholder="Name" required>
                         </div>
                         <div class="mb-4">
-                            <input type="tel" class="form-control grad-careers-input" id="careerPhone"
+                            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="10" minlength="10" class="form-control grad-careers-input" id="careerPhone"
                                 placeholder="Phone Number" required>
                         </div>
                         <div class="mb-4">
@@ -100,11 +100,17 @@
                 return;
             }
 
+            // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            // if (!emailRegex.test(email)) {
+            //     alert("Please enter a valid email address.");
+            //     return;
+            // }
+
             // Create mailto link
             const subject = `Career Application - ${name}`;
             const body = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}\n\n---\nThis message was sent from the Grad Architects Careers page.`;
 
-            const mailtoLink = `mailto:barathbalag@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const mailtoLink = `mailto:vishnu@gradarchitects.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
 
             // Show loading state
