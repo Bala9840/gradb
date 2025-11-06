@@ -96,8 +96,28 @@ class GradServices {
         column.setAttribute('aria-expanded', 'true');
         this.currentExpanded = column;
 
+        // FIXED: Remove auto-scroll on mobile
+        if (window.innerWidth > 768) {
+            // Only scroll on desktop
+            this.scrollServiceIntoView(column);
+        }
+
         // Trigger custom event
         this.dispatchServiceChangeEvent(column);
+    }
+
+    // FIXED: Modified to prevent auto-scroll on mobile
+    scrollServiceIntoView(column) {
+        if (window.innerWidth <= 768) {
+            return; // Don't scroll on mobile
+        }
+
+        // Only scroll on desktop with smooth behavior
+        column.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'nearest',
+            inline: 'nearest'
+        });
     }
 
     handleKeyDown(event, column) {
@@ -124,14 +144,15 @@ class GradServices {
     }
 
     handleResize() {
-        // Add any resize-specific logic here
+        // FIXED: Remove any auto-scroll behavior on resize
         if (window.innerWidth <= 768) {
-            // Mobile-specific adjustments
-            this.serviceColumns.forEach(column => {
-                if (column.classList.contains('grad-expanded')) {
-                    column.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-            });
+            // Don't auto-scroll on mobile resize
+            return;
+        }
+        
+        // Desktop-specific adjustments only
+        if (this.currentExpanded) {
+            this.currentExpanded.scrollIntoView({ behavior: 'auto', block: 'nearest' });
         }
     }
 
@@ -176,6 +197,23 @@ function initializeGradServices() {
     try {
         if (!window.gradServices) {
             window.gradServices = new GradServices();
+            
+            // FIXED: Add mobile scroll protection
+            if (window.innerWidth <= 768) {
+                // Disable any auto-scroll behaviors for mobile
+                const style = document.createElement('style');
+                style.textContent = `
+                    @media (max-width: 768px) {
+                        .grad-service-column.grad-expanded {
+                            scroll-margin-top: 0px !important;
+                        }
+                        .grad-services-container {
+                            overflow-anchor: none !important;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
         }
         return window.gradServices;
     } catch (error) {

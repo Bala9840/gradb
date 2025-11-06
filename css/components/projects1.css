@@ -1,5 +1,9 @@
 /* projects1.css - Complete styling for projects1.html */
 /* Reset and Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
