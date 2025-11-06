@@ -517,8 +517,14 @@ async function handleContactFormSubmit(form) {
 
     try {
         await saveToGoogleSheets({ name, email, phone, message, type: 'contact' });
-        showToast('Thank you for your message! We will get back to you soon.');
+        // document.getElementById('contactName').value = ""
+        // document.getElementById('contactEmail').value = ""
+        // document.getElementById('contactPhone').value = ""
+        // document.getElementById('contactMessage').value =""
         form.reset();
+        showToast('Thank you for your message! We will get back to you soon.');
+        
+        
     } catch (error) {
         console.error('Form submission error:', error);
         showAlert('There was an error submitting your form. Please try again or contact us directly.', 'error');
@@ -547,8 +553,12 @@ async function handleFooterFormSubmit(form) {
 
     try {
         await saveToGoogleSheets({ name, email, phone, message, type: 'project' });
-        showToast('Thank you for your message! We will get back to you soon.');
+        // document.getElementById('projectName').value = ""
+        // document.getElementById('projectEmail').value = ""
+        // document.getElementById('projectPhone').value = ""
+        // document.getElementById('projectMessage').value =""
         form.reset();
+        showToast('Thank you for your message! We will get back to you soon.');
     } catch (error) {
         console.error('Form submission error:', error);
         showAlert('There was an error submitting your form. Please try again or contact us directly.', 'error');
@@ -579,7 +589,7 @@ function handleCareersFormSubmit(form) {
     const subject = `Career Application - ${name}`;
     const body = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}\n\n---\nThis message was sent from the Grad Architects Careers page.`;
 
-    const mailtoLink = `mailto:barathbalag@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:vishnu@gradarchitects.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     const submitBtn = form.querySelector('.grad-careers-submit-btn');
     const originalText = submitBtn.innerHTML;
@@ -601,78 +611,109 @@ function handleCareersFormSubmit(form) {
 // ================================
 // UI Utilities
 // ================================
-function showToast(message) {
-    let toast = document.getElementById("toast");
-    if (!toast) {
-        toast = document.createElement("div");
-        toast.id = "toast";
-        toast.className = "toast";
-        document.body.appendChild(toast);
-    }
+// function showToast(message) {
+//     let toast = document.getElementById("toast");
+//     if (!toast) {
+//         toast = document.createElement("div");
+//         toast.id = "toast";
+//         toast.className = "toast";
+//         document.body.appendChild(toast);
+//     }
     
-    toast.textContent = message;
-    toast.classList.add("show");
+//     toast.textContent = message;
+//     toast.classList.add("show");
 
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 3000);
-}
+//     setTimeout(() => {
+//         toast.classList.remove("show");
+//     }, 3000);
+// }
 
-function showAlert(message, type = "info") {
-    const existingAlert = document.querySelector('.custom-alert');
-    if (existingAlert) {
-        existingAlert.remove();
-    }
+// function showAlert(message, type = "info") {
+//     const existingAlert = document.querySelector('.custom-alert');
+//     if (existingAlert) {
+//         existingAlert.remove();
+//     }
 
-    const alertDiv = document.createElement('div');
-    alertDiv.className = `custom-alert alert alert-${type === 'error' ? 'danger' : 'success'} fade show`;
-    alertDiv.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        z-index: 9999;
-        min-width: 300px;
-        max-width: 500px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    `;
+//     const alertDiv = document.createElement('div');
+//     alertDiv.className = `custom-alert alert alert-${type === 'error' ? 'danger' : 'success'} fade show`;
+//     alertDiv.style.cssText = `
+//         position: fixed;
+//         top: 100px;
+//         right: 20px;
+//         z-index: 9999;
+//         min-width: 300px;
+//         max-width: 500px;
+//         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+//     `;
     
-    alertDiv.innerHTML = `
-        <strong>${type === 'error' ? 'Error!' : 'Success!'}</strong> ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    `;
+//     alertDiv.innerHTML = `
+//         <strong>${type === 'error' ? 'Error!' : 'Success!'}</strong> ${message}
+//         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+//     `;
 
-    document.body.appendChild(alertDiv);
+//     document.body.appendChild(alertDiv);
 
-    setTimeout(() => {
-        if (alertDiv.parentNode) {
-            alertDiv.remove();
-        }
-    }, 5000);
-}
+//     setTimeout(() => {
+//         if (alertDiv.parentNode) {
+//             alertDiv.remove();
+//         }
+//     }, 5000);
+// }
 
 // ================================
 // Google Sheets Integration
 // ================================
 async function saveToGoogleSheets(formData) {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbx0NylMw9o6v3LhJbrgc9yy-63GtAENElbt3f75FyNgy1R-F94i0Ujq-WD_7ZBJkno/exec';
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbx0NylMw9o6v3LhJbrgc9yy-63GtAENElbt3f75FyNgy1R-F94i0Ujq-WD_7ZBJkno/exec';
 
-    try {
-        const response = await fetch(scriptURL, {
-            method: 'POST',
-            body: JSON.stringify(formData),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            mode: "no-cors"
-        });
-        
-        showToast("Thank you! Your information has been saved.");
-        return true;
-    } catch (error) {
-        console.error('Google Sheets error:', error);
-        throw error;
-    }
+  try {
+    const response = await fetch(scriptURL, {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      mode: "no-cors"
+    });
+
+    console.log(response);
+    const green ="#28a745"
+    //  Success toast
+    Toastify({
+      text: " Thank you! Your information has been saved.",
+      duration: 1000,
+      close: true,
+      gravity: "top", // top or bottom
+      position: "center", // left, center, or right
+      stopOnFocus: true,
+      style: {
+        background:green,
+        color: "#fff",
+        fontWeight: "500",
+        borderRadius: "180px",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.15)"
+      }
+    }).showToast();
+
+  } catch (error) {
+    console.error('Google Sheets error:', error);
+
+    //  Error toast
+    Toastify({
+      text: " Failed to save. Please try again later.",
+      duration: 2000,
+      close: true,
+      gravity: "top",
+      position: "center",
+      style: {
+        background: "danger"
+      }
+    }).showToast();
+
+    throw error;
+  }
 }
+
 
 // ================================
 // Additional Initialization Functions
