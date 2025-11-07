@@ -676,7 +676,7 @@ async function saveToGoogleSheets(formData) {
       mode: "no-cors"
     });
 
-    console.log(response);
+  
     const green ="#28a745"
     //  Success toast
     Toastify({
