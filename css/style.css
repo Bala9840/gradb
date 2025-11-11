@@ -511,8 +511,9 @@ img {
     .navbar-expand-lg .navbar-collapse {
         display: flex !important;
         flex-basis: auto;
-        padding-right: 100px;
+        padding-right: 0px;
     }
+    
 }
 /* ==============================
    MOBILE MENU 

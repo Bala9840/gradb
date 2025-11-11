@@ -16,12 +16,20 @@
   background: transparent;
 }
 
+    .grad-contact-section {
+        min-height: auto;
+        padding-top: 15px !important;
+    }
 .grad-contact-eyebrow {
   font-size: 0.8rem;
   letter-spacing: 1px;
   color: rgba(0, 0, 0, 0.8);
   text-align: left;
   width: 100%;
+}
+
+.section {
+  padding: 0px;
 }
 
 .grad-contact-input {
@@ -106,7 +114,7 @@
 
 .grad-contact-map-container {
   width: 85%;
-  height: 43vh;
+  height: 41vh;
   margin-left: -20px;
   margin-right: 80px;
   border-radius: 10px;
@@ -453,10 +461,10 @@
 }
 
 /* Landscape Orientation for Mobile */
-@media (max-height: 600px) and (orientation: landscape) {
+@media (max-height: 600px) {
   .grad-contact-section {
     min-height: auto;
-    padding: 40px 0;
+    padding: 10px 0;
   }
 
   .grad-contact-form-container {

@@ -101,7 +101,8 @@
     id="homeCarousel"
     class="carousel slide carousel-fade"
     data-bs-ride="carousel"
-    data-bs-interval="5000"
+        data-bs-interval="2000"
+
   >
     <div class="carousel-indicators">
       <button
@@ -189,10 +190,13 @@ philosophy honed over 15 years.
 </section>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    var carousel = new bootstrap.Carousel(
-      document.getElementById("homeCarousel")
-    );
+    var homeCarousel = document.getElementById("homeCarousel");
+    if (homeCarousel) {
+      new bootstrap.Carousel(homeCarousel, {
+        interval: 2000,
+        wrap: true,
+        ride: "carousel",
+      });
+    }
   });
-
- 
 </script>
